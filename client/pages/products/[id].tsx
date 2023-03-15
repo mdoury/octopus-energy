@@ -1,5 +1,6 @@
 import { gql } from "@apollo/client";
 import { client } from "gql/client";
+import type { GetProductIdsQuery, GetProductQuery } from "gql/graphql";
 import type { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
@@ -9,7 +10,7 @@ export default function ProductPage(props: Props) {
 }
 
 export async function getStaticPaths() {
-  const { data } = await client.query({
+  const { data } = await client.query<GetProductIdsQuery>({
     query: gql`
       query GetProductIds {
         allProducts {
@@ -25,7 +26,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context: GetStaticPropsContext) {
-  const { data } = await client.query({
+  const { data } = await client.query<GetProductQuery>({
     query: gql`
       query GetProduct($id: ID!) {
         Product(id: $id) {

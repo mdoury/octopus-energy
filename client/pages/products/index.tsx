@@ -1,6 +1,7 @@
 import { gql } from "@apollo/client";
 import { client } from "gql/client";
-import { InferGetStaticPropsType } from "next";
+import type { GetProductsQuery } from "gql/graphql";
+import type { InferGetStaticPropsType } from "next";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -9,7 +10,7 @@ export default function ProductListPage(props: Props) {
 }
 
 export async function getStaticProps() {
-  const { data } = await client.query({
+  const { data } = await client.query<GetProductsQuery>({
     query: gql`
       query GetProducts {
         allProducts {
