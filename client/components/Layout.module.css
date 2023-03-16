@@ -1,0 +1,38 @@
+.header {
+  display: grid;
+  grid-template-areas: "logo cart";
+  grid-template-rows: 24px;
+  grid-template-columns: 1fr 24px;
+  padding: var(--s4) var(--s5);
+  justify-content: center;
+  gap: var(--s6);
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 0 auto;
+}
+
+.logo {
+  grid-area: logo;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.cart {
+  grid-area: cart;
+  position: relative;
+}
+
+.badge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: -30%;
+  right: -30%;
+  border-radius: var(--border-radius);
+  height: 16px;
+  min-width: 16px;
+  background-color: var(--sohoLights);
+  font-size: 11px;
+  padding: var(--s0) 4px;
+}

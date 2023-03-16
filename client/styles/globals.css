@@ -1,30 +1,108 @@
 /* Octopus Energy brand colours used in the design */
 :root {
-  --hemocyanin: #100030;
-  --ice: #f0ffff;
-  --plum: #600e6b;
-  --purpleHaze: #a49fc8;
-  --siphon: #100030;
-  --sohoLights: #f050f8;
+  --hemocyanin: rgb(23, 4, 71);
+  --ice: rgb(240, 255, 255);
+  --plum: rgb(96, 14, 107);
+  --purpleHaze: rgb(164, 159, 200);
+  --siphon: rgb(16, 0, 48);
+  --sohoLights: rgb(240, 80, 248);
+
+  --border-radius: 10px;
+
+  --s0: 0;
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 20px;
+  --s6: 24px;
+  --s7: 32px;
+
+  --max-width: 640px;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 html,
-body {
-  padding: 0;
+body,
+body > div {
+  width: 100%;
+  min-height: 100%;
+  padding: var(--s0);
   margin: 0;
   font-family: Gotham, helvetica, arial, sans-serif;
   color: var(--ice);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 body {
   background: var(--siphon);
 }
 
-.home {
+/* Headings */
+h1 {
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 1.5;
+  margin: 16px 0;
+}
+
+h2 {
+  margin: 0;
+}
+
+/* Layout */
+.image {
+  max-width: 100%;
+}
+
+.page-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
   margin: 0 auto;
+  padding: var(--s0);
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.footer-section {
+  margin-top: auto;
+  font-size: 9px;
+  font-weight: 300;
+  color: var(--purpleHaze);
+  line-height: 1.75;
+}
+
+.footer-section > p {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--s5);
+}
+
+.page-section {
+  padding: var(--s5);
+  margin: 0 auto;
+  max-width: var(--max-width);
+}
+
+.alternate-section {
+  background-color: var(--hemocyanin);
+}
+
+.section-content {
+  margin: 16px 0;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 2;
+}
+
+.table {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 16px 0;
 }

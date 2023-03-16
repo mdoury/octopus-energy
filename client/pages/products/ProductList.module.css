@@ -1,0 +1,19 @@
+.productList {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  list-style: none;
+  padding: var(--s1);
+  margin: 0;
+}
+
+.productList > li {
+  background-color: var(--hemocyanin);
+  border-radius: 24px;
+  padding: var(--s5);
+  box-shadow: 0px 0px 12px 4px rgba(240, 80, 248, 0.4);
+}
+
+.productLink {
+  text-decoration: none;
+}

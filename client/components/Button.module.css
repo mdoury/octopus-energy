@@ -1,0 +1,28 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: var(--border-radius);
+  background-color: var(--sohoLights);
+  color: var(--siphon);
+  border: none;
+}
+
+.button:disabled {
+  color: var(--ice);
+  background-color: var(--plum);
+}
+
+.large {
+  font-size: 16px;
+  letter-spacing: 0.1ch;
+  min-height: 48px;
+}
+
+.small {
+  font-size: 18px;
+  border-radius: var(--border-radius);
+  width: 30px;
+  height: 30px;
+}

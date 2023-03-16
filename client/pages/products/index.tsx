@@ -1,26 +1,38 @@
 import { gql } from "@apollo/client";
+import Image from "components/Image";
 import { client } from "gql/client";
 import type { GetProductsQuery } from "gql/graphql";
 import type { InferGetStaticPropsType } from "next";
 import Link from "next/link";
+import styles from "./ProductList.module.css";
+import buttonStyles from "components/Button.module.css";
+import cls from "utils/cls";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
 export default function ProductListPage({ products }: Props) {
   return (
-    <main>
-      <ul>
+    <section className="page-section">
+      <ul className={styles.productList}>
         {products.map((product) => (
           <li key={product.id}>
-            <figure>
-              <img src={product.img_url} alt={product.name} />
-            </figure>
-            <h2>{product.name}</h2>
-            <Link href={`/products/${product.id}`}>Discover more</Link>
+            <Image src={product.img_url} alt={product.name} />
+            <h1>{product.name}</h1>
+            <Link href={`/products/${product.id}`}>
+              <a
+                className={cls(
+                  styles.productLink,
+                  buttonStyles.button,
+                  buttonStyles.large
+                )}
+              >
+                Discover more
+              </a>
+            </Link>
           </li>
         ))}
       </ul>
-    </main>
+    </section>
   );
 }
 

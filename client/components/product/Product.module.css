@@ -1,0 +1,60 @@
+.productForm {
+  display: grid;
+  grid-template-areas:
+    "price      quantity"
+    "addToCart  addToCart";
+  grid-template-rows: 32px 48px;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: flex-end;
+  padding: var(--s4) var(--s0);
+  margin-top: 16px;
+}
+
+.productForm > .price {
+  grid-area: price;
+  font-size: 24px;
+}
+
+.productForm > .quantity {
+  grid-area: quantity;
+  display: flex;
+  gap: 0 8px;
+  align-items: flex-end;
+  justify-content: flex-end;
+  font-size: 20px;
+}
+
+.productForm > .quantity > label {
+  grid-area: label;
+  font-size: 10px;
+  font-weight: 300;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex: 0 1;
+}
+
+.productForm > .quantity > label > input {
+  border-radius: var(--border-radius);
+  border: none;
+  color: white;
+  text-align: center;
+  background: transparent;
+  font-size: 24px;
+  max-width: 48px;
+}
+
+.productForm > .quantity input::-webkit-outer-spin-button,
+.productForm > .quantity input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.productForm > .quantity > input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.productForm > .addToCart {
+  grid-area: addToCart;
+}
