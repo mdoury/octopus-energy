@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "img_url": "https://i.ibb.co/2nzwxnQ/bulb.png",
+    "height": 12.6,
+    "name": "Energy saving light bulb",
+    "price": 1299,
+    "width": 6.2
+  },
+  {
+    "id": "2",
+    "img_url": "https://i.pinimg.com/originals/17/92/17/1792175739e94d8e9f8a4d6fb2a1009b.png",
+    "height": 999999999,
+    "name": "The Kraken",
+    "price": 999999999,
+    "width": 999999999
+  },
+  {
+    "id": "3",
+    "img_url": "https://i.ibb.co/2nzwxnQ/bulb.png",
+    "height": 1234567,
+    "name": "Lightbulb Octopus",
+    "price": 1299,
+    "width": 87654321
+  }
+]

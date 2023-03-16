@@ -1,0 +1,16 @@
+{
+  "id": "1",
+  "img_url": "https://i.ibb.co/2nzwxnQ/bulb.png",
+  "name": "Energy saving light bulb",
+  "power": "25W",
+  "quantity": 4,
+  "price": 1299,
+  "description": "Available in 7 watts, 9 watts, 11 watts Spiral Light bulb in B22, bulb switches on instantly, no wait around warm start and flicker free features make for a great all purpose bulb",
+  "brand": "Philips",
+  "colour": "Cool daylight",
+  "height": 12.6,
+  "length": 6.2,
+  "model_code": "E27 ES",
+  "weight": 77,
+  "width": 6.2
+}

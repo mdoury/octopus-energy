@@ -12,7 +12,9 @@ export default function Home() {
       <p className="section-content">
         Get started by visiting the{" "}
         <Link href="/products">
-          <code>/products</code>
+          <a>
+            <code>/products</code>
+          </a>
         </Link>{" "}
         URL and give a look at <code>client/pages/products/index.ts</code> and{" "}
         <code>client/pages/products/[id].ts</code>

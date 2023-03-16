@@ -3,6 +3,7 @@ import Image from "components/Image";
 import { useCartContext } from "contexts/CartContext";
 import { Product } from "gql/graphql";
 import { ChangeEvent, FormEvent, useCallback, useState } from "react";
+import { formatCurrency } from "utils/format";
 import productStyles from "./Product.module.css";
 import productCardStyles from "./ProductCard.module.css";
 
@@ -40,21 +41,17 @@ export default function ProductCard({
 
   const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     try {
-      setProductQuantity(Math.max(parseInt(e.currentTarget?.value ?? "1"), 1));
+      console.log({ v: e.target.value });
+      setProductQuantity(Math.max(parseInt(e.target.value || "1"), 1));
     } catch {
-      handleError(e.currentTarget?.value ?? "");
+      handleError(e.target?.value ?? "");
     }
   }, []);
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const value = event.currentTarget.productQuantity?.value ?? 0;
-    try {
-      addToCart(id, parseInt(value));
-      setProductQuantity(1);
-    } catch {
-      handleError(value);
-    }
+    addToCart(id, productQuantity);
+    setProductQuantity(1);
   };
 
   return (
@@ -65,7 +62,9 @@ export default function ProductCard({
         {power} // Packet of {quantity}
       </span>
       <form className={productStyles.productForm} onSubmit={handleSubmit}>
-        <span className={productStyles.price}>£{price / 100}</span>
+        <span className={productStyles.price} data-testid="price">
+          {formatCurrency(price / 100)}
+        </span>
         <span className={productStyles.quantity}>
           <Button
             disabled={productQuantity <= 1 || !productQuantity}

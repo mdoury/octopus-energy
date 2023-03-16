@@ -5,8 +5,10 @@ import ProductSpecifications from "components/product/ProductSpecifications";
 import { client } from "gql/client";
 import type { GetProductIdsQuery, GetProductQuery } from "gql/graphql";
 import type { GetStaticPropsContext, InferGetStaticPropsType } from "next";
+import Link from "next/link";
+import BackNav from "components/BackNav";
 
-type Props = InferGetStaticPropsType<typeof getStaticProps>;
+type Props = Omit<InferGetStaticPropsType<typeof getStaticProps>, "__typename">;
 
 export default function ProductPage({
   id,
@@ -26,6 +28,7 @@ export default function ProductPage({
 }: Props) {
   return (
     <article>
+      <BackNav linkProps={{ href: "/products" }} text="Back to product list" />
       <ProductCard
         id={id}
         img_url={img_url}

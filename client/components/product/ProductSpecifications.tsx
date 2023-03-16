@@ -21,10 +21,10 @@ export default function Specifications({
         <span>Brand</span>
         <span>{brand}</span>
         <span>Item weight</span>
-        <span>{weight}</span>
+        <span>{weight} g</span>
         <span>Dimensions</span>
         <span>
-          {height} x {width} x {length}
+          {height} cm x {width} cm x {length} cm
         </span>
         <span>Item model number</span>
         <span>{model_code}</span>

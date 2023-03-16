@@ -8,15 +8,21 @@ import styles from "./ProductList.module.css";
 import buttonStyles from "components/Button.module.css";
 import cls from "utils/cls";
 
-type Props = InferGetStaticPropsType<typeof getStaticProps>;
+type Props = Omit<InferGetStaticPropsType<typeof getStaticProps>, "__typename">;
 
 export default function ProductListPage({ products }: Props) {
   return (
     <section className="page-section">
+      <h1 className={styles.title}>Octoproducts</h1>
       <ul className={styles.productList}>
         {products.map((product) => (
           <li key={product.id}>
-            <Image src={product.img_url} alt={product.name} />
+            <Image
+              src={product.img_url}
+              alt={product.name}
+              width="400"
+              height="400"
+            />
             <h1>{product.name}</h1>
             <Link href={`/products/${product.id}`}>
               <a

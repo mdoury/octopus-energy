@@ -12,15 +12,20 @@ export default function Layout({ children }: Props) {
     <>
       <header className={styles.header}>
         <Link href="/">
-          <img
-            className={styles.logo}
-            src="https://static.octopuscdn.com/logos/logo.svg"
-            alt="Octopus Energy Logo"
-          />
+          <a className={styles.logo}>
+            <img
+              src="https://static.octopuscdn.com/logos/logo.svg"
+              alt="Octopus Energy Logo"
+            />
+          </a>
         </Link>
         <div className={styles.cart}>
           <img src="/basket.svg" alt="Basket" />
-          {total ? <span className={styles.badge}>{total}</span> : null}
+          {total ? (
+            <span className={styles.badge} data-testid="items-in-cart">
+              {total}
+            </span>
+          ) : null}
         </div>
       </header>
       <main className="page-content">{children}</main>
