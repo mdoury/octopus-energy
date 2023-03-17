@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "concurrently \"yarn server\" \"next dev\"",
-    "build": "next build",
+    "build": "yarn run server & next build",
     "generate": "graphql-codegen --config gql/codegen.ts",
     "start": "next start",
     "server": "yarn run json-graphql-server ../server/db.js --p 3001",
