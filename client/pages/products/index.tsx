@@ -17,12 +17,7 @@ export default function ProductListPage({ products }: Props) {
       <ul className={styles.productList}>
         {products.map((product) => (
           <li key={product.id}>
-            <Image
-              src={product.img_url}
-              alt={product.name}
-              width="400"
-              height="400"
-            />
+            <Image src={product.img_url} alt={product.name} />
             <h1>{product.name}</h1>
             <Link href={`/products/${product.id}`}>
               <a
