@@ -1,11 +1,11 @@
 import Button from "components/Button";
-import Image from "components/Image";
 import { useCartContext } from "contexts/CartContext";
 import { Product } from "gql/graphql";
 import { ChangeEvent, FormEvent, useCallback, useState } from "react";
 import { formatCurrency } from "utils/format";
 import productStyles from "./Product.module.css";
 import productCardStyles from "./ProductCard.module.css";
+import ProductImage from "./ProductImage";
 
 type Props = Pick<
   Product,
@@ -39,14 +39,16 @@ export default function ProductCard({
     setProductQuantity(1);
   }, []);
 
-  const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    try {
-      console.log({ v: e.target.value });
-      setProductQuantity(Math.max(parseInt(e.target.value || "1"), 1));
-    } catch {
-      handleError(e.target?.value ?? "");
-    }
-  }, []);
+  const handleChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      try {
+        setProductQuantity(Math.max(parseInt(e.target.value || "1"), 1));
+      } catch {
+        handleError(e.target?.value ?? "");
+      }
+    },
+    [handleError]
+  );
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -54,13 +56,13 @@ export default function ProductCard({
     setProductQuantity(1);
   };
 
+  const subline = `${power} // Packet of ${quantity}`;
+
   return (
     <section className="page-section">
-      <Image src={img_url} alt={name} />
+      <ProductImage src={img_url} alt={name} />
       <h1>{name}</h1>
-      <span className={productCardStyles.subtitle}>
-        {power} // Packet of {quantity}
-      </span>
+      <span className={productCardStyles.subtitle}>{subline}</span>
       <form className={productStyles.productForm} onSubmit={handleSubmit}>
         <span className={productStyles.price} data-testid="price">
           {formatCurrency(price / 100)}

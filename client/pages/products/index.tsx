@@ -1,5 +1,5 @@
 import { gql } from "@apollo/client";
-import Image from "components/Image";
+import ProductImage from "components/product/ProductImage";
 import { client } from "gql/client";
 import type { GetProductsQuery } from "gql/graphql";
 import type { InferGetStaticPropsType } from "next";
@@ -17,7 +17,7 @@ export default function ProductListPage({ products }: Props) {
       <ul className={styles.productList}>
         {products.map((product) => (
           <li key={product.id}>
-            <Image src={product.img_url} alt={product.name} />
+            <ProductImage src={product.img_url} alt={product.name} />
             <h1>{product.name}</h1>
             <Link href={`/products/${product.id}`}>
               <a
